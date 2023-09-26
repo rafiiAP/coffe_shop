@@ -1,3 +1,4 @@
+import 'package:coffe_shop/page/intro.dart';
 import 'package:flutter/material.dart';
 
 import 'page/home.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const IntroPage(),
     );
   }
 }
