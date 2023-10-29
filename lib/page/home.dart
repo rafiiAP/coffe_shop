@@ -1,4 +1,5 @@
 import 'package:coffe_shop/data/constant/color.dart';
+import 'package:coffe_shop/page/cappucino.dart';
 import 'package:coffe_shop/page/statemanagement/home_getx.dart';
 import 'package:coffe_shop/widget/widget.dart';
 import 'package:flutter/material.dart';
@@ -19,23 +20,13 @@ class MyHomePage extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        extendBody: true,
         body: Stack(
           children: [
-            AspectRatio(
-              aspectRatio: 2.8 / 2,
-              child: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColor.gradientTop,
-                      AppColor.gradientBot,
-                    ],
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    tileMode: TileMode.clamp,
-                  ),
-                ),
-              ),
+            Image.asset(
+              'assets/images/bg_dashboard.png',
+              width: Get.width,
+              fit: BoxFit.fill,
             ),
             Padding(
               padding: const EdgeInsets.all(16),
@@ -104,7 +95,6 @@ class MyHomePage extends StatelessWidget {
                   Image.asset(
                     'assets/images/promo.png',
                     width: Get.width,
-                    height: 120,
                     fit: BoxFit.fill,
                   ),
                   W.padHeight10(),
@@ -145,7 +135,7 @@ class MyHomePage extends StatelessWidget {
                       child: TabBarView(
                         controller: ctrl.tabController,
                         children: [
-                          W.textBody('Cappuccino'),
+                          CappucinoPage(),
                           W.textBody('Machiato'),
                           W.textBody('Latte'),
                           W.textBody('Americano'),

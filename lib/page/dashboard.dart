@@ -34,53 +34,48 @@ class _DashboardPageState extends State<DashboardPage> {
       extendBody: true,
       resizeToAvoidBottomInset: true,
       body: vaPage[nIndex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: AppColor.white,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: BottomNavigationBar(
-          onTap: (value) {
-            onItemTapped(value);
-          },
-          currentIndex: nIndex,
-          selectedItemColor: AppColor.primary,
-          unselectedItemColor: AppColor.greyBtn,
-          items: const [
-            BottomNavigationBarItem(
-              label: 'Home',
-              icon: ImageIcon(
-                AssetImage(
-                  'assets/images/home.png',
-                ),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        onTap: (value) {
+          onItemTapped(value);
+        },
+        currentIndex: nIndex,
+        selectedItemColor: AppColor.primary,
+        unselectedItemColor: AppColor.greyBtn,
+        items: const [
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: ImageIcon(
+              AssetImage(
+                'assets/images/home.png',
               ),
             ),
-            BottomNavigationBarItem(
-              label: 'Like',
-              icon: ImageIcon(
-                AssetImage(
-                  'assets/images/Heart.png',
-                ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Like',
+            icon: ImageIcon(
+              AssetImage(
+                'assets/images/Heart.png',
               ),
             ),
-            BottomNavigationBarItem(
-              label: 'Shop',
-              icon: ImageIcon(
-                AssetImage(
-                  'assets/images/chart.png',
-                ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Shop',
+            icon: ImageIcon(
+              AssetImage(
+                'assets/images/chart.png',
               ),
             ),
-            BottomNavigationBarItem(
-              label: 'Notif',
-              icon: ImageIcon(
-                AssetImage(
-                  'assets/images/Notification.png',
-                ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Notif',
+            icon: ImageIcon(
+              AssetImage(
+                'assets/images/Notification.png',
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
