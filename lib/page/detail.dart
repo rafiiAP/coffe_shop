@@ -32,115 +32,120 @@ class DetaliPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.asset(
-                  cappucinoModel.image,
-                  fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AspectRatio(
+                aspectRatio: 16 / 9,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.asset(
+                    cappucinoModel.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            W.padHeight16(),
-            Flexible(
-              child: W.textBody(
-                cappucinoModel.title,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
+              W.padHeight16(),
+              SizedBox(
+                child: W.textBody(
+                  cappucinoModel.title,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
-            ),
-            W.padHeight5(),
-            Flexible(
-              child: W.textBody(
-                cappucinoModel.subTitle,
+              W.padHeight5(),
+              SizedBox(
+                child: W.textBody(
+                  cappucinoModel.subTitle,
+                  color: AppColor.greyText,
+                ),
+              ),
+              W.padHeight5(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.star_rounded,
+                        size: 17,
+                        color: Colors.amber,
+                      ),
+                      const SizedBox(width: 5),
+                      W.textBody(
+                        cappucinoModel.rating.toString(),
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Image.asset('assets/images/coffe.png'),
+                      ),
+                      W.padwidth5(),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: AppColor.white,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Image.asset('assets/images/milk.png'),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              W.padHeight10(),
+              const Divider(),
+              W.padHeight16(),
+              W.textBody(
+                'Description',
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+              W.padHeight16(),
+              W.textBody(
+                cappucinoModel.desctiption,
                 color: AppColor.greyText,
               ),
-            ),
-            W.padHeight5(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.star_rounded,
-                      size: 17,
-                      color: Colors.amber,
-                    ),
-                    const SizedBox(width: 5),
-                    W.textBody(
-                      cappucinoModel.rating.toString(),
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Image.asset('assets/images/coffe.png'),
-                    ),
-                    W.padwidth5(),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: AppColor.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Image.asset('assets/images/milk.png'),
-                    )
-                  ],
-                ),
-              ],
-            ),
-            W.padHeight10(),
-            const Divider(),
-            W.padHeight16(),
-            W.textBody(
-              'Description',
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-            W.padHeight16(),
-            W.textBody(
-              cappucinoModel.desctiption,
-              color: AppColor.greyText,
-            ),
-            W.padHeight16(),
-            W.textBody(
-              'Size',
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-            W.padHeight16(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Obx(() => buildButton('S', ctrl.selectedValue.value == 'S', () {
-                      ctrl.selectValue('S');
-                    })),
-                W.padwidth10(),
-                Obx(() => buildButton('M', ctrl.selectedValue.value == 'M', () {
-                      ctrl.selectValue('M');
-                    })),
-                W.padwidth10(),
-                Obx(() => buildButton('L', ctrl.selectedValue.value == 'L', () {
-                      ctrl.selectValue('L');
-                    })),
-              ],
-            )
-          ],
+              W.padHeight16(),
+              W.textBody(
+                'Size',
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+              W.padHeight16(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Obx(() =>
+                      buildButton('S', ctrl.selectedValue.value == 'S', () {
+                        ctrl.selectValue('S');
+                      })),
+                  W.padwidth10(),
+                  Obx(() =>
+                      buildButton('M', ctrl.selectedValue.value == 'M', () {
+                        ctrl.selectValue('M');
+                      })),
+                  W.padwidth10(),
+                  Obx(() =>
+                      buildButton('L', ctrl.selectedValue.value == 'L', () {
+                        ctrl.selectValue('L');
+                      })),
+                ],
+              )
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(

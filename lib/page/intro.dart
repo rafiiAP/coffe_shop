@@ -11,54 +11,60 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Stack(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return Stack(
             children: [
-              Image.asset(
-                'assets/images/intro.png',
-                fit: BoxFit.fitWidth,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Image.asset(
+                    'assets/images/intro.png',
+                    fit: BoxFit.fill,
+                    width: Get.width,
+                    height: Get.height * 0.7,
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    W.textBody(
+                      'Coffee so good,\nyour taste buds\nwill love it.',
+                      color: AppColor.white,
+                      fontSize: 34,
+                      fontWeight: FontWeight.w600,
+                      textAlign: TextAlign.center,
+                    ),
+                    W.padHeight10(),
+                    W.textBody(
+                      'The best grain, the finest roast,\nthe powerful flavor.',
+                      color: AppColor.subIntro,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 30),
+                    W.eleBtn(
+                      onPressed: () {
+                        Get.offAll(const DashboardPage());
+                      },
+                      padding: const EdgeInsets.symmetric(vertical: 21),
+                      child: W.textBody(
+                        'Get Started',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                W.textBody(
-                  'Coffee so good,\nyour taste buds\nwill love it.',
-                  color: AppColor.white,
-                  fontSize: 34,
-                  fontWeight: FontWeight.w600,
-                  textAlign: TextAlign.center,
-                ),
-                W.padHeight10(),
-                W.textBody(
-                  'The best grain, the finest roast,\nthe powerful flavor.',
-                  color: AppColor.subIntro,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 30),
-                W.eleBtn(
-                  onPressed: () {
-                    Get.offAll(const DashboardPage());
-                  },
-                  padding: const EdgeInsets.symmetric(vertical: 21),
-                  child: W.textBody(
-                    'Get Started',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }
