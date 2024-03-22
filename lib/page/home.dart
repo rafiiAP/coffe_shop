@@ -53,11 +53,11 @@ class MyHomePage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(13),
-                            child: Image.asset(
-                              'assets/images/rafii.jpg',
-                              width: 44,
+                          CircleAvatar(
+                            foregroundColor: AppColor.white,
+                            backgroundColor: AppColor.primary,
+                            child: W.textBody(
+                              'R',
                             ),
                           )
                         ],
