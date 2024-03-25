@@ -14,6 +14,7 @@ class CappucinoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      // physics: NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.only(top: 16, bottom: 60),
       itemCount: ctrl.vaCappucino.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

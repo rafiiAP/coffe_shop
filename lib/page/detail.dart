@@ -128,18 +128,24 @@ class DetaliPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Obx(() =>
-                      buildButton('S', ctrl.selectedValue.value == 'S', () {
+                  Obx(() => buildButton(
+                      text: 'S',
+                      isSelected: ctrl.selectedValue.value == 'S',
+                      onPressed: () {
                         ctrl.selectValue('S');
                       })),
                   W.padwidth10(),
-                  Obx(() =>
-                      buildButton('M', ctrl.selectedValue.value == 'M', () {
+                  Obx(() => buildButton(
+                      text: 'M',
+                      isSelected: ctrl.selectedValue.value == 'M',
+                      onPressed: () {
                         ctrl.selectValue('M');
                       })),
                   W.padwidth10(),
-                  Obx(() =>
-                      buildButton('L', ctrl.selectedValue.value == 'L', () {
+                  Obx(() => buildButton(
+                      text: 'L',
+                      isSelected: ctrl.selectedValue.value == 'L',
+                      onPressed: () {
                         ctrl.selectValue('L');
                       })),
                 ],
@@ -193,15 +199,16 @@ class DetaliPage extends StatelessWidget {
     );
   }
 
-  Widget buildButton(String text, bool isSelected, Function() onPressed) {
+  Widget buildButton({String? text, bool? isSelected, Function()? onPressed}) {
     return Expanded(
       child: SizedBox(
         height: 50,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               elevation: 0,
-              backgroundColor:
-                  isSelected ? AppColor.primary.withOpacity(0.2) : Colors.white,
+              backgroundColor: isSelected!
+                  ? AppColor.primary.withOpacity(0.2)
+                  : Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
@@ -210,7 +217,7 @@ class DetaliPage extends StatelessWidget {
               )),
           onPressed: onPressed,
           child: Text(
-            text,
+            text!,
             style: TextStyle(
               color: isSelected ? AppColor.primary : Colors.grey,
             ),
